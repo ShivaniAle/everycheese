@@ -25,6 +25,7 @@ class UserUpdateView(LoginRequiredMixin, UpdateView):
     fields = [
         "name",
         "bio",
+        "bio",
     ]
 
     # We already imported user in the View code above,
