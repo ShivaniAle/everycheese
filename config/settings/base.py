@@ -86,6 +86,8 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     "everycheese.users.apps.UsersConfig",
     # Your stuff: custom apps go here
+    "everycheese.cheeses.apps.CheesesConfig", # cheese info app
+
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -241,7 +243,7 @@ EMAIL_TIMEOUT = 5
 # Django Admin URL.
 ADMIN_URL = "admin/"
 # https://docs.djangoproject.com/en/dev/ref/settings/#admins
-ADMINS = [("Your name here", "your-name-here@example.com")]
+ADMINS = [("Shivani", "sa1507@unh.edu")]
 # https://docs.djangoproject.com/en/dev/ref/settings/#managers
 MANAGERS = ADMINS
 
