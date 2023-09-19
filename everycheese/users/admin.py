@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django.contrib.auth import admin as auth_admin
 from django.contrib.auth import get_user_model
+from everycheese.cheeses.models import Cheese
+
 
 from everycheese.users.forms import (
     UserChangeForm,
@@ -20,3 +22,6 @@ class UserAdmin(auth_admin.UserAdmin):
     ) + auth_admin.UserAdmin.fieldsets
     list_display = ["username", "name", "is_superuser"]
     search_fields = ["name"]
+
+
+    admin.site.register(Cheese)
