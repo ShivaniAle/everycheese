@@ -1,6 +1,9 @@
 from django.db import models
 from model_utils.models import TimeStampedModel
 from autoslug import AutoSlugField  # Import AutoSlugField for slug generation
+from django_countries.fields import CountryField
+
+
 
 class Cheese(TimeStampedModel):
     # Standard name field
@@ -12,6 +15,9 @@ class Cheese(TimeStampedModel):
     # Description field (TextField for long text)
     description = models.TextField("Description", blank=True)
     
+    country_of_origin = CountryField(
+        "Country of Origin", blank=True
+    )
     # Firmness choices
     class Firmness(models.TextChoices):
         UNSPECIFIED = "unspecified", "Unspecified"
