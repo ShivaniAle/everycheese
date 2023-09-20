@@ -6,4 +6,9 @@ from .models import Cheese
 class CheeseListView(ListView):
     model = Cheese
 
+class CheeseDetailView(DetailView):
+        model = Cheese
+        template_name = 'cheeses/cheese_detail.html'
+        context_object_name = 'cheese'
+
 # Create your views here.
