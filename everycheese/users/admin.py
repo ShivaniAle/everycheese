@@ -4,6 +4,7 @@ from django.contrib.auth import get_user_model
 from everycheese.cheeses.models import Cheese
 
 
+
 from everycheese.users.forms import (
     UserChangeForm,
     UserCreationForm,
@@ -25,3 +26,6 @@ class UserAdmin(auth_admin.UserAdmin):
 
 
     admin.site.register(Cheese)
+
+    
+   
