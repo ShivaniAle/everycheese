@@ -7,7 +7,7 @@ pytestmark = pytest.mark.django_db
 
 def test__str__():
 
-    cheese = CheeseFactory(name="Stracchino")
+    cheese = CheeseFactory()
 
-    assert cheese.__str__() == "Stracchino"
-    assert str(cheese) == "Stracchino"
+    assert cheese.__str__() == cheese.name
+    assert str(cheese) == cheese.name
