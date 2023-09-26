@@ -6,9 +6,9 @@ app_name = "cheeses"
 
 urlpatterns = [
     path(
-        route='',
-        view=views.CheeseListView.as_view(),
-        name='list'
+        route='<slug:slug>/',
+        view=views.CheeseDetailView.as_view(),
+        name='detail'
     ),
     path(
         route='add/',
@@ -16,9 +16,9 @@ urlpatterns = [
         name='add'
     ),
     path(
-        route='<slug:slug>/',
-        view=views.CheeseDetailView.as_view(),
-        name='detail'
+        route='',
+        view=views.CheeseListView.as_view(),
+        name='list'
     ),
     
 ]
