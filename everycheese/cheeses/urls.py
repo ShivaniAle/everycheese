@@ -2,9 +2,11 @@ from django.urls import path
 
 from . import views
 
+
 app_name = "cheeses"
 
 urlpatterns = [
+    
     path(
         route='add/',
         view=views.CheeseCreateView.as_view(),
@@ -24,6 +26,11 @@ urlpatterns = [
         route='',
         view=views.CheeseListView.as_view(),
         name='list'
+    ),
+     path(
+        route='<slug:slug>/delete/',
+        view=views.CheeseDeleteView.as_view(),
+        name='delete'
     ),
 
     

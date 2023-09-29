@@ -12,6 +12,11 @@
             role="button">
                 Update
         </a>
+
+        <form method="post" action="{% url 'cheeses:delete' cheese.slug %}" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
     </p>
         
 

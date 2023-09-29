@@ -4,6 +4,14 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import TemplateView
 from django.views import defaults as default_views
+from everycheese.cheeses.views import (
+    CheeseCreateView,
+    CheeseUpdateView,
+    CheeseDetailView,
+    CheeseListView,
+    CheeseDeleteView,
+)
+
 
 urlpatterns = [
     path(
