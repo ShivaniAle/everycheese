@@ -9,8 +9,9 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Description</th>
       <th>Country of Origin</th>
+      <th>Command</th>
+      <th>Rating</th>
     </tr>
   </thead>
   <tbody>
@@ -28,8 +29,13 @@
       <td>
         <form method="post" action="{% url 'cheeses:delete' cheese.slug %}" style="display: inline;">
           {% csrf_token %}
-          <button type="submit" class="btn btn-danger">Delete</button>
+          <button type="submit" class="btn btn-link" onclick=" return confirm('Are you sure to delete this cheese?')">Delete</button>
         </form>
+        |
+        <a href="{% url 'cheeses:update' slug=cheese.slug %}" class="btn btn-link">Update</a>
+      </td>
+      <td>
+        {{cheese.average_rating}}
       </td>
     </tr>
     {% endfor %}
