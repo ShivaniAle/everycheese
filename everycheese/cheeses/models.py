@@ -21,6 +21,7 @@ class Cheese(TimeStampedModel):
     country_of_origin = CountryField(
         "Country of Origin", blank=True)
 
+    rating = models.DecimalField(max_digits=3, decimal_places=2, default=0.0)
     
     # Other fields can be added here if needed
     creator = models.ForeignKey(
@@ -81,7 +82,8 @@ class Rating(models.Model):
     cheese = models.ForeignKey(
         Cheese,
         null=True,
-        on_delete=models.SET_NULL
+        on_delete=models.SET_NULL,
+        related_name='ratings'
     )
     
     def __str__(self):

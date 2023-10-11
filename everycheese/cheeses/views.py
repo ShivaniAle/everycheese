@@ -49,6 +49,7 @@ class CheeseUpdateView(LoginRequiredMixin, UpdateView):
         'description',
         'firmness',
         'country_of_origin'
+        
     ]
     action = "Update"
 
