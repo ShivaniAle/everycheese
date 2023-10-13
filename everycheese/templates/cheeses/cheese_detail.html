@@ -1,46 +1,36 @@
 {% extends "base.html" %}
-
-{% block title %}Cheeses: {{ cheese.name }}{% endblock %}
-
+{% block title %}Cheeses: {{ cheese.name }}{% endblock title %}
 {% block content %}
-    <a href="{% url 'cheeses:detail' cheese.slug %}">Back to Cheese Detail</a> <!-- Add this line -->
-
-    <h2>{{ cheese.name }}</h2>
-
-    <p>
-        <a class="btn btn-primary"
-            href="{% url 'cheeses:update' slug=cheese.slug %}"
-            role="button">
-                Update
-        </a>
+<h2>{{ cheese.name }}</h2>
+<p>
+    <a class="btn btn-primary"
+    href="{% url 'cheeses:update' slug=cheese.slug %}"
+    role="button">
+    Update
+    </a>
     </p>
-        
+{% if cheese.firmness %}
+<p>Firmness: {{ cheese.get_firmness_display }}</p>
+{% endif %}
+{% if cheese.description %}
+<p>{{ cheese.description }}</p>
+{% endif %}
+{% if cheese.country_of_origin %}
+<p>Country of Origin: {{ cheese.country_of_origin.name }}
+<img src="{{ cheese.country_of_origin.flag }}" />
+</p>
+{% if cheese.average_rating %}
+<p>Rating: {{ cheese.average_rating }}/5</p>
+{% endif %}
+<hr/>
+<h3>Submitted by
+<a href="{% url 'users:detail' cheese.creator.username %}">
+{{ cheese.creator.username }}
+</a>
+</h3>
+{% if cheese.creator.name %}
+<p>{{ cheese.creator.name }}</p>
+{% endif %}
+{% endif %}
 
-    {% if cheese.firmness %}
-        <p>Firmness: {{ cheese.get_firmness_display }}</p>
-    {% endif %}
-
-    {% if cheese.country_of_origin %}
-        <p>Country of Origin: {{ cheese.country_of_origin.name }}
-            <img src="{{ cheese.country_of_origin.flag }}" />
-        </p>
-    {% endif %}
-    
-    <hr/>
-    <h3>Submitted by
-        {% if cheese.creator %}
-        <a href="{% url 'users:detail' cheese.creator.username %}">
-            {{ cheese.creator.username }}
-        </a>
-        {% if cheese.creator.name %}
-                <br>
-                {{ cheese.creator.name }}
-            {% else %}
-                Cheesehead
-            {% endif %}
-        {% else %}
-            Cheesehead
-        {% endif %}
-    </h3>
-
-{% endblock %}
+{% endblock content %}
